@@ -42,19 +42,19 @@ class Command(BaseCommand):
             fraction_of_contribution=0.5,
             fraction_done=0)
         c.save()
-        t = Task(
-            name = "new features for version 1.0",
-            description = "",
-            #parent_task = models.ForeignKey("self", null=True, blank=True)
-            #contributors = models.ManyToManyField(Contributor, null=True, blank=True)
-            contributors=c,
-            creation_date = datetime.datetime.now(),
-            controller = self._users[2],
-            start_date = datetime.datetime(2015,9,25,10),
-            end_date = datetime.datetime(2015,8,10,10),
-            fraction_done=0,
-            status= Task.SCHEDULED)
-        t.save()
+        # t = Task(
+        #     name = "new features for version 1.0",
+        #     description = "",
+        #     #parent_task = models.ForeignKey("self", null=True, blank=True)
+        #     #contributors = models.ManyToManyField(Contributor, null=True, blank=True)
+        #     creation_date = datetime.datetime.now(),
+        #     controller = self._users[2],
+        #     start_date = datetime.datetime(2015,9,25,10),
+        #     end_date = datetime.datetime(2015,8,10,10),
+        #     fraction_done=0,
+        #     status= Task.SCHEDULED)
+        # t.contributors_set.create(c)
+        # t.save()
 
     def handle(self, *args, **options):
         self._create_users()
